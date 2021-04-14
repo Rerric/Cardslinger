@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public float horizontalInput;
-    public float verticalInput;
-
+    public Rigidbody2D rb;
+    private Vector2 moveDirection;
+    private Vector3 mousePosition;
     public Transform target;
 
     // Start is called before the first frame update
@@ -19,11 +19,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        ProcessInputs();
+    }
 
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-        transform.Translate(Vector3.up * Time.deltaTime * speed * verticalInput);
-        //transform.LookAt(target);
+    void FixedUpdate()
+    {
+        Move();
+        Aim();
+    }
+
+    void ProcessInputs()
+    {
+        //Movement Inputs
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new Vector2(moveX, moveY).normalized;
+
+        //Mouse Inputs
+    }
+
+    void Move()
+    {
+        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+    }
+
+    void Aim()
+    {
+        Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+        transform.up = direction;
     }
 }
