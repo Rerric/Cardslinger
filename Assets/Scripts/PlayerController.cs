@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
 
         //Mouse Inputs
+
     }
 
     void Move()
