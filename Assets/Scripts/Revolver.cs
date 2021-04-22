@@ -11,8 +11,11 @@ public class Revolver : MonoBehaviour
     /*Cardtypes
         0 = None;
         1 = Bullet;
-        2 = Ace of Spades;
-        3 = Queen of Hearts;
+        2 = Knife;
+        3 = Burst;
+        4 = Queen of Hearts;
+        5 = Ace of Spades;
+        6 = Wild Card;
     */
 
     // Start is called before the first frame update
@@ -40,6 +43,11 @@ public class Revolver : MonoBehaviour
             Fire();
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            CycleSlot();
+        }
+
         //Keyboard Inputs
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -51,7 +59,7 @@ public class Revolver : MonoBehaviour
     {
         if (slots[currentSlot] != 0)
         {
-            Instantiate(projectilePrefabs[slots[currentSlot]], transform.position + new Vector3(1, 0, 0).normalized, transform.rotation);
+            Instantiate(projectilePrefabs[slots[currentSlot]], transform.position, transform.rotation);
             slots[currentSlot] = 0;
             CycleSlot();
         }
