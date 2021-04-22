@@ -31,7 +31,7 @@ public class Deck : MonoBehaviour
         
     }
 
-    void Shuffle() //Shuffles the Deck
+    public void Shuffle() //Shuffles the Deck
     {
         for (int i = 0; i < deck.Count; i++)
         {
@@ -42,11 +42,19 @@ public class Deck : MonoBehaviour
         }
     }
 
-    void AddCards(int cardType, int quantity) //Adds cards to the deck (doesn't shuffle in)
+    public void AddCards(int cardType, int quantity) //Adds cards to the deck (doesn't shuffle in)
     {
         for (int i = 0; i < quantity; i++)
         {
             deck.Add(cardType);
+        }
+    }
+
+    public void RemoveCards(int numberOfCards) //Removes cards from the top of the deck
+    {
+        for (int i = 0; i < numberOfCards; i++)
+        {
+            deck.RemoveAt(i);
         }
     }
 }

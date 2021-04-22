@@ -260,6 +260,11 @@ MonoBehaviour:
   projectilePrefabs:
   - {fileID: 0}
   - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
+  - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
+  - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
+  - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
+  - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
+  - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
   currentSlot: 0
 --- !u!1 &170030745
 GameObject:
@@ -1705,7 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: 
-  cardTypes: 000000000e0000000000000001000000020000000200000001000000
+  cardTypes: 00000000100000000000000000000000020000000100000001000000
 --- !u!1 &2023757310
 GameObject:
   m_ObjectHideFlags: 0

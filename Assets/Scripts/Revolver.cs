@@ -7,6 +7,7 @@ public class Revolver : MonoBehaviour
     public int[] slots;
     public GameObject[] projectilePrefabs;
     public int currentSlot;
+    private Deck deckScript;
 
     /*Cardtypes
         0 = None;
@@ -21,7 +22,7 @@ public class Revolver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Reload();
+        deckScript = GameObject.Find("Deck").GetComponent<Deck>();
     }
 
     // Update is called once per frame
@@ -53,6 +54,11 @@ public class Revolver : MonoBehaviour
         {
             Reload();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            deckScript.AddCards(1, 1);
+        }
     }
 
     public void Fire()
@@ -67,9 +73,17 @@ public class Revolver : MonoBehaviour
 
     public void Reload()
     {
-        for (int i = 0; i < slots.Length; i++)
+        if (deckScript.deck.Count != 0)
         {
-            slots[i] = 1;
+            for (int i = 0; i < slots.Length; i++)
+            {
+                if (slots[i] == 0)
+                {
+                    slots[i] = deckScript.deck[0];
+                    deckScript.RemoveCards(1);
+                    break;
+                }
+            }
         }
     }
 
