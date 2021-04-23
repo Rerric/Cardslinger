@@ -9,6 +9,8 @@ public class Revolver : MonoBehaviour
     public int currentSlot;
     private Deck deckScript;
 
+    public GameObject revolver;
+
     /*Cardtypes
         0 = None;
         1 = Bullet;
@@ -33,7 +35,7 @@ public class Revolver : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        revolver.transform.Rotate(0, 0, 5);
     }
 
     void ProcessInputs()
