@@ -6,10 +6,13 @@ public class Revolver : MonoBehaviour
 {
     public int[] slots;
     public GameObject[] projectilePrefabs;
+    public GameObject[] uiSlots;
     public int currentSlot;
     private Deck deckScript;
 
     public GameObject revolver;
+    public bool canShoot;
+    public float shotCd;
 
     /*Cardtypes
         0 = None;
@@ -25,23 +28,26 @@ public class Revolver : MonoBehaviour
     void Start()
     {
         deckScript = GameObject.Find("Deck").GetComponent<Deck>();
+        shotCd = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
         ProcessInputs();
+        RotateBarrel();
+        UpdateUISlots();
     }
 
     void FixedUpdate()
     {
-        revolver.transform.Rotate(0, 0, 5);
+        
     }
 
     void ProcessInputs()
     {
         //Mouse Inputs
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canShoot == true)
         {
             Fire();
         }
@@ -65,11 +71,13 @@ public class Revolver : MonoBehaviour
 
     public void Fire()
     {
+        shotCd = 0;
+        canShoot = false;
+        CycleSlot();
         if (slots[currentSlot] != 0)
         {
             Instantiate(projectilePrefabs[slots[currentSlot]], transform.position, transform.rotation);
             slots[currentSlot] = 0;
-            CycleSlot();
         }
     }
 
@@ -98,6 +106,31 @@ public class Revolver : MonoBehaviour
         else
         {
             currentSlot = 0;
+        }
+    }
+
+    void RotateBarrel()
+    {
+        if (shotCd < 60)
+        {
+            revolver.transform.Rotate(0, 0, 1);
+            shotCd += 1;
+        }
+        else canShoot = true;
+    }
+
+    void UpdateUISlots()
+    {
+        for (int s = 0; s < slots.Length; s++)
+        {
+            if (slots[s] != 0)
+            {
+                uiSlots[s].SetActive(true);
+            }
+            else
+            {
+                uiSlots[s].SetActive(false);
+            }
         }
     }
 }

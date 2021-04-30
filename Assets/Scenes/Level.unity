@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &125964884
 Transform:
   m_ObjectHideFlags: 0
@@ -346,8 +346,17 @@ MonoBehaviour:
   - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
   - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
   - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
+  uiSlots:
+  - {fileID: 1204738738}
+  - {fileID: 1561628958}
+  - {fileID: 125964883}
+  - {fileID: 2102159444}
+  - {fileID: 507267656}
+  - {fileID: 1214309382}
   currentSlot: 0
   revolver: {fileID: 1199529059}
+  canShoot: 1
+  shotCd: 0
 --- !u!1 &170030745
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &507267657
 Transform:
   m_ObjectHideFlags: 0
@@ -1417,7 +1426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1204738739
 Transform:
   m_ObjectHideFlags: 0
@@ -1498,7 +1507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1214309383
 Transform:
   m_ObjectHideFlags: 0
@@ -1825,7 +1834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1561628959
 Transform:
   m_ObjectHideFlags: 0
@@ -2328,7 +2337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2102159445
 Transform:
   m_ObjectHideFlags: 0
