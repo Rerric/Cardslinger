@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Deck : MonoBehaviour
 {
     public List<int> deck = new List<int>();
     public int[] cardTypes;
+    public TextMeshProUGUI deckCount;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class Deck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        deckCount.text = ("" + deck.Count);
     }
 
     public void Shuffle() //Shuffles the Deck

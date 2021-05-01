@@ -7,6 +7,7 @@ public class Revolver : MonoBehaviour
     public int[] slots;
     public GameObject[] projectilePrefabs;
     public GameObject[] uiSlots;
+    public Sprite[] uiSprites;
     public int currentSlot;
     private Deck deckScript;
 
@@ -135,6 +136,8 @@ public class Revolver : MonoBehaviour
             if (slots[s] != 0)
             {
                 uiSlots[s].SetActive(true);
+                var temp = uiSlots[s].GetComponent<SpriteRenderer>();
+                temp.sprite = uiSprites[slots[s]];
             }
             else
             {

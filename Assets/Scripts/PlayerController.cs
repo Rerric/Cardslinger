@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public float maxHp;
+    public float hp;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
     private Vector3 mousePosition;
@@ -13,7 +15,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        hp = maxHp;
     }
 
     // Update is called once per frame
