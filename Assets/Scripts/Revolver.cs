@@ -15,7 +15,7 @@ public class Revolver : MonoBehaviour
     public bool canShoot;
     public float shotCd;
 
-    /*Cardtypes
+    /* Cardtypes
         0 = None;
         1 = Bullet;
         2 = Knife;
