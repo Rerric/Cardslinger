@@ -52,13 +52,13 @@ public class Revolver : MonoBehaviour
             Fire();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && canShoot == true)
         {
             CycleSlot();
         }
 
         //Keyboard Inputs
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && canShoot == true)
         {
             Reload();
         }
@@ -71,8 +71,6 @@ public class Revolver : MonoBehaviour
 
     public void Fire()
     {
-        shotCd = 0;
-        canShoot = false;
         CycleSlot();
         if (slots[currentSlot] != 0)
         {
@@ -85,20 +83,31 @@ public class Revolver : MonoBehaviour
     {
         if (deckScript.deck.Count != 0)
         {
+            int n = currentSlot + 1;
             for (int i = 0; i < slots.Length; i++)
             {
-                if (slots[i] == 0)
+                if (n >= slots.Length)
                 {
-                    slots[i] = deckScript.deck[0];
+                    n = 0;
+                }
+
+                if (slots[n] == 0)
+                {
+                    slots[n] = deckScript.deck[0];
                     deckScript.RemoveCards(1);
                     break;
                 }
+
+                n += 1;
             }
         }
     }
 
     void CycleSlot()
     {
+        shotCd = 0;
+        canShoot = false;
+
         if (currentSlot != 5)
         {
             currentSlot += 1;
@@ -113,7 +122,7 @@ public class Revolver : MonoBehaviour
     {
         if (shotCd < 60)
         {
-            revolver.transform.Rotate(0, 0, 1);
+            revolver.transform.Rotate(0, 0, -1);
             shotCd += 1;
         }
         else canShoot = true;
