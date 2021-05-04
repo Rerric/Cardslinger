@@ -5,6 +5,7 @@ using UnityEngine;
 public class Healthbar : MonoBehaviour
 {
     public GameObject player;
+    public GameObject gameOverText;
     private PlayerController playerScript;
 
     // Start is called before the first frame update
@@ -17,5 +18,10 @@ public class Healthbar : MonoBehaviour
     void Update()
     {
         transform.localScale = new Vector3(playerScript.hp / playerScript.maxHp, 1, 1);
+
+        if (playerScript.isDead)
+        {
+            gameOverText.SetActive(true);
+        }
     }
 }

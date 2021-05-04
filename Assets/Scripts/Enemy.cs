@@ -7,10 +7,17 @@ public class Enemy : MonoBehaviour
     public float maxHp;
     public float hp;
     public float speed;
-    public float range;
-    public float damage;
+    public float range; //How far away this can be before being able to attack
+    public float damage; //How much damage attack does
+    public float waitTime; //How many frames between readying an attack and attacking
+    private float wait; //Variable used to check frames
     private Vector2 direction;
     public int behavior;
+    public bool isRanged;
+    public bool canAttack;
+    public bool isAlert;
+
+    public bool marked;
 
     public GameObject eSprite;
     public GameObject healthBar;
@@ -18,7 +25,9 @@ public class Enemy : MonoBehaviour
     public GameObject chaseArmsSprite;
     public GameObject windupArmsSprite;
     public GameObject attackArmsSprite;
+    public GameObject markedSprite;
     public Rigidbody2D rb;
+    public GameObject enemyProjectile;
     private GameObject player;
 
     // Start is called before the first frame update
@@ -26,6 +35,9 @@ public class Enemy : MonoBehaviour
     {
         hp = maxHp;
         behavior = 0;
+        canAttack = true;
+        isAlert = false;
+        marked = false;
         player = GameObject.Find("Player");
     }
 
@@ -33,11 +45,17 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Hp();
+        StatusEffects();
 
         //Behavior State Machine
         switch (behavior)
         {
             case 3: //attack
+                if (isRanged)
+                {
+                    Aim();
+                }
+                Attack();
                 break;
 
             case 2: //chase
@@ -47,7 +65,11 @@ public class Enemy : MonoBehaviour
                 break;
 
             case 1:  //alert
-                StartCoroutine(Alert());
+                if (isAlert == false)
+                {
+                    isAlert = true;
+                    StartCoroutine(Alert());
+                }
                 Aim();
                 break;
 
@@ -100,15 +122,62 @@ public class Enemy : MonoBehaviour
         healthBar.transform.localScale = new Vector3((hp / maxHp) / 2, 0.5f, 1);
     }
 
+    void StatusEffects()
+    {
+        if (marked)
+        {
+            markedSprite.SetActive(true);
+        }
+        else markedSprite.SetActive(false);
+    }
+
     void Chase()
     {
         chaseArmsSprite.SetActive(true);
         float distance = Vector2.Distance(player.transform.position, transform.position);
         if (distance <= range)
         {
-            rb.velocity = new Vector2(0, 0);
+            if (isRanged)
+            {
+                rb.velocity = new Vector2(0, 0);
+            }
             chaseArmsSprite.SetActive(false);
             behavior = 3;
         }
+    }
+
+    void Attack()
+    {
+        if (canAttack)
+        {
+            canAttack = false;
+            wait = 0;
+            windupArmsSprite.SetActive(true);
+        }
+
+        if (wait < waitTime)
+        {
+            wait += 1;
+        }
+        else
+        {
+            windupArmsSprite.SetActive(false);
+            attackArmsSprite.SetActive(true);
+            if (isRanged && wait == waitTime)
+            {
+                wait += 1;
+                Instantiate(enemyProjectile, eSprite.transform.position, eSprite.transform.rotation);
+            }
+            StartCoroutine(AttackCd());
+        }
+    }
+
+    IEnumerator AttackCd()
+    {
+        yield return new WaitForSeconds(1);
+        attackArmsSprite.SetActive(false);
+        canAttack = true;
+        behavior = 2;
+        
     }
 }

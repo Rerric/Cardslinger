@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float maxHp;
     public float hp;
+    public bool isDead;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
     private Vector3 mousePosition;
@@ -15,6 +17,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         hp = maxHp;
     }
 
@@ -22,12 +25,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ProcessInputs();
+        
+        if (hp <= 0)
+        {
+            rb.velocity = new Vector2(0, 0);
+            isDead = true;
+            if (hp < 0)
+            {
+                hp = 0;
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        Move();
-        Aim();
+        if (isDead == false)
+        {
+            Move();
+            Aim();
+        }
     }
 
     void ProcessInputs()
@@ -38,8 +54,13 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
-        //Mouse Inputs
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (isDead)
+            {
+                SceneManager.LoadScene("Level");
+            }
+        }
     }
 
     void Move()

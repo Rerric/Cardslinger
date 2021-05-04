@@ -10,6 +10,7 @@ public class Revolver : MonoBehaviour
     public Sprite[] uiSprites;
     public int currentSlot;
     private Deck deckScript;
+    private PlayerController playerControllerScript;
 
     public GameObject revolver;
     public bool canShoot;
@@ -29,13 +30,17 @@ public class Revolver : MonoBehaviour
     void Start()
     {
         deckScript = GameObject.Find("Deck").GetComponent<Deck>();
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         shotCd = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
+        if (playerControllerScript.isDead == false)
+        {
+            ProcessInputs();
+        }
         RotateBarrel();
         UpdateUISlots();
     }
@@ -62,11 +67,6 @@ public class Revolver : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && canShoot == true)
         {
             Reload();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            deckScript.AddCards(1, 1);
         }
     }
 
