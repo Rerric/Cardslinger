@@ -409,7 +409,7 @@ MonoBehaviour:
   speed: 4
   range: 15
   damage: 15
-  waitTime: 120
+  waitTime: 60
   behavior: 0
   isRanged: 1
   canAttack: 0

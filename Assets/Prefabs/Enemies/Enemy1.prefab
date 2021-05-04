@@ -154,8 +154,9 @@ MonoBehaviour:
   speed: 5
   range: 3
   damage: 20
-  waitTime: 60
+  waitTime: 30
   behavior: 0
+  isRanged: 0
   canAttack: 0
   isAlert: 0
   marked: 0
@@ -167,6 +168,7 @@ MonoBehaviour:
   attackArmsSprite: {fileID: 5287153900521730185}
   markedSprite: {fileID: 5287153900545091183}
   rb: {fileID: 5287153899785594486}
+  enemyProjectile: {fileID: 0}
 --- !u!50 &5287153899785594486
 Rigidbody2D:
   serializedVersion: 4
