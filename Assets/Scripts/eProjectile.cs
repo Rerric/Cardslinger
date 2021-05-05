@@ -29,4 +29,9 @@ public class eProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Destroy(gameObject);
+    }
 }
