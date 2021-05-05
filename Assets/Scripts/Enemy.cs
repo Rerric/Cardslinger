@@ -30,6 +30,9 @@ public class Enemy : MonoBehaviour
     public GameObject enemyProjectile;
     private GameObject player;
 
+    public GameObject[] dropPrefabs;
+    public float dropChance; // %Chance this will drop something from its available drops when defeated
+
     // Start is called before the first frame update
     void Start()
     {
@@ -116,6 +119,12 @@ public class Enemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            float chance = Random.Range(1, 100);
+            if (chance <= dropChance)
+            {
+                int drop = Random.Range(0, dropPrefabs.Length);
+                Instantiate(dropPrefabs[drop], transform.position, transform.rotation);
+            }
             Destroy(gameObject);
         }
 
@@ -174,7 +183,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator AttackCd()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(0.5f);
         attackArmsSprite.SetActive(false);
         canAttack = true;
         behavior = 2;

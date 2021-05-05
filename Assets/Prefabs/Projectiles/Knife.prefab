@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4531046714057017651}
   - component: {fileID: 4531046714057017652}
   - component: {fileID: 4531046714057017653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knife
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4999b29acd83474b96781f5ae40693e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2000
+  speed: 1500
   damage: 50
   id: 2
   rb: {fileID: 4531046714057017651}

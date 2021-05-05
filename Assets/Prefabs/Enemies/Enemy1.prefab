@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5287153899785594489}
   - component: {fileID: 5287153899785594488}
   - component: {fileID: 5287153899785594486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -169,6 +169,10 @@ MonoBehaviour:
   markedSprite: {fileID: 5287153900545091183}
   rb: {fileID: 5287153899785594486}
   enemyProjectile: {fileID: 0}
+  dropPrefabs:
+  - {fileID: 4922141211357006513, guid: 9183e499aa0de8940a6be2092edf42ef, type: 3}
+  - {fileID: 1898054437235668396, guid: 7c043bf170950714c98eca3edc3a1688, type: 3}
+  dropChance: 60
 --- !u!50 &5287153899785594486
 Rigidbody2D:
   serializedVersion: 4
@@ -364,7 +368,7 @@ GameObject:
   - component: {fileID: 5287153900521730183}
   - component: {fileID: 5287153900521730181}
   - component: {fileID: 5287153900521730180}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: spr_enemy_arms_knife_slice
   m_TagString: Hitbox
   m_Icon: {fileID: 0}

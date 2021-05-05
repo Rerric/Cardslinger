@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1526444424230383826}
   - component: {fileID: 1788529836171290656}
   - component: {fileID: 2217913646199052703}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ace of Spades
   m_TagString: Projectile
   m_Icon: {fileID: 0}

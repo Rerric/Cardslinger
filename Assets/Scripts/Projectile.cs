@@ -32,12 +32,7 @@ public class Projectile : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Hitbox") == true)
-        {
-            Destroy(gameObject);
-        }
-
+    { 
         if (collider.CompareTag("Projectile") == true)
         {
             Destroy(collider.gameObject);
@@ -65,11 +60,6 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
-        
-    }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Destroy(gameObject);
     }
 }
