@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
     void Idle()
     {
         float distance = Vector2.Distance(player.transform.position, transform.position);
-        if (distance <= 12 || hp < maxHp)
+        if (distance <= 15 || hp < maxHp)
         {
             behavior = 1;
         }

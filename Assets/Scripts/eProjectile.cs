@@ -28,6 +28,13 @@ public class eProjectile : MonoBehaviour
             temp.hp -= damage;
             Destroy(gameObject);
         }
+
+        if (collider.CompareTag("Prop") == true)
+        {
+            var temp = collider.gameObject.GetComponent<Prop>();
+            temp.hp -= damage;
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
