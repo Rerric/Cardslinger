@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4000
   damage: 20
+  lifetime: 2
   id: 1
   rb: {fileID: 7613026369769382028}
   statusEffect: 0

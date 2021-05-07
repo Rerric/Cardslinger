@@ -176,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1500
   damage: 50
+  lifetime: 3
   id: 2
   rb: {fileID: 4531046714057017651}
   statusEffect: 0

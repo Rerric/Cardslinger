@@ -26,5 +26,10 @@ public class EnemyHitBox : MonoBehaviour
             var temp = collider.gameObject.GetComponent<PlayerController>();
             temp.hp -= enemyScript.damage;
         }
+
+        if (collider.CompareTag("Buff") == true)
+        {
+            Destroy(collider.transform.parent.gameObject);
+        }
     }
 }

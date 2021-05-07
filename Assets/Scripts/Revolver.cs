@@ -75,7 +75,17 @@ public class Revolver : MonoBehaviour
         CycleSlot();
         if (slots[currentSlot] != 0)
         {
-            Instantiate(projectilePrefabs[slots[currentSlot]], transform.position, transform.rotation);
+            if (slots[currentSlot] == 6)
+            {
+                int random = Random.Range(1, projectilePrefabs.Length - 1);
+                slots[currentSlot] = random;
+            }
+
+            if (slots[currentSlot] == 4)
+            {
+                Instantiate(projectilePrefabs[slots[currentSlot]], transform.position, GameObject.Find("Cursor").transform.rotation);
+            }
+            else Instantiate(projectilePrefabs[slots[currentSlot]], transform.position, transform.rotation);
             slots[currentSlot] = 0;
         }
     }

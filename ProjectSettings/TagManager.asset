@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Pickup
   - Prop
+  - Buff
   layers:
   - Default
   - TransparentFX

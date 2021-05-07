@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     public bool isAlert;
 
     public bool marked;
+    public bool stunned;
 
     public GameObject eSprite;
     public GameObject healthBar;
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
         hp = maxHp;
         behavior = 0;
         canAttack = true;
+        stunned = false;
         isAlert = false;
         marked = false;
         player = GameObject.Find("Player");
@@ -53,6 +55,10 @@ public class Enemy : MonoBehaviour
         //Behavior State Machine
         switch (behavior)
         {
+            case 4: //stunned
+                rb.velocity = new Vector2(0, 0);
+                break;
+
             case 3: //attack
                 if (isRanged)
                 {
@@ -62,9 +68,12 @@ public class Enemy : MonoBehaviour
                 break;
 
             case 2: //chase
-                Aim();
-                Move();
-                Chase();
+                if (stunned == false)
+                {
+                    Aim();
+                    Move();
+                    Chase();
+                }
                 break;
 
             case 1:  //alert
@@ -187,6 +196,19 @@ public class Enemy : MonoBehaviour
         attackArmsSprite.SetActive(false);
         canAttack = true;
         behavior = 2;
-        
+    }
+
+    public void Stun(float duration)
+    {
+        stunned = true;
+        behavior = 4;
+        StartCoroutine(Stunned(duration));
+    }
+
+    IEnumerator Stunned(float dur)
+    {
+        yield return new WaitForSeconds(dur);
+        behavior = 2;
+        stunned = false;
     }
 }

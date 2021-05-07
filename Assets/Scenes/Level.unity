@@ -843,8 +843,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
   - {fileID: 4531046714057017654, guid: f3e53562d3c9c31428cbddcd350e323a, type: 3}
-  - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
-  - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
+  - {fileID: 8308448137610682717, guid: 0f48a1b85a7b4a94cacbe240ce3aeafd, type: 3}
+  - {fileID: 3231936717034547227, guid: c29dae755510f1343a55db3964806aa1, type: 3}
   - {fileID: 352246109166474780, guid: fe8f8567f1b9ed1418823b4b7aa06372, type: 3}
   - {fileID: 2416172107286681384, guid: ce71093ef7595944fa91a47921a13d50, type: 3}
   uiSlots:
@@ -858,10 +858,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6f7ecd65b5efd7f4d8fbc2e61fe0dafc, type: 3}
   - {fileID: 21300000, guid: 6f7ecd65b5efd7f4d8fbc2e61fe0dafc, type: 3}
   - {fileID: 21300000, guid: 25cf8560ab7b7e346a7cf35720d8f3f3, type: 3}
+  - {fileID: 21300000, guid: 59f713099a840e945897b6ffde663294, type: 3}
+  - {fileID: 21300000, guid: 7fff53706abb744478adf884fae6f822, type: 3}
   - {fileID: 21300000, guid: 30fe1641dbb441d43a2fd39f6e05ba3b, type: 3}
-  - {fileID: 21300000, guid: 30fe1641dbb441d43a2fd39f6e05ba3b, type: 3}
-  - {fileID: 21300000, guid: 30fe1641dbb441d43a2fd39f6e05ba3b, type: 3}
-  - {fileID: 21300000, guid: 30fe1641dbb441d43a2fd39f6e05ba3b, type: 3}
+  - {fileID: 21300000, guid: 9454bbd890365684ca70661f991ba2d9, type: 3}
   currentSlot: 3
   revolver: {fileID: 1199529059}
   canShoot: 1
@@ -9185,7 +9185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: 
-  cardTypes: 00000000100000000100000000000000000000000300000000000000
+  cardTypes: 00000000110000000200000001000000020000000300000000000000
   deckCount: {fileID: 1708500225}
 --- !u!1 &1996768873
 GameObject:

@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
                 hp = 0;
             }
         }
+
+        if (hp > maxHp)
+        {
+            hp = maxHp;
+        }
     }
 
     void FixedUpdate()

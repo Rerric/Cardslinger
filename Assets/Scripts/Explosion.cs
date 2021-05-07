@@ -2,42 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Explosion : MonoBehaviour
 {
-    public float speed;
     public float damage;
-    public float lifetime; //how long the projectile will fly before expiring
     public int id;
-    public Rigidbody2D rb;
     public int statusEffect;
-    public GameObject explosion;
 
     public Deck deckScript;
-
-    /* Status Effects
-        0 = none;
-        1 = marked;
-        2 = stunned;
-    */
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(Destroyed());
+
         deckScript = GameObject.Find("Deck").GetComponent<Deck>();
-
-        rb.AddRelativeForce(Vector3.up * speed);
-
-        StartCoroutine(Lifetime());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void OnTriggerEnter2D(Collider2D collider)
-    { 
+    {
         if (collider.CompareTag("Projectile") == true)
         {
             Destroy(collider.gameObject);
@@ -61,39 +49,19 @@ public class Projectile : MonoBehaviour
                 {
                     temp.marked = true;
                 }
-
-                if (statusEffect == 2)
-                {
-                    temp.Stun(3.0f);
-                }
             }
-            
-            if (id == 3)
+
+            if (statusEffect == 2)
             {
-                Instantiate(explosion, transform.position, transform.rotation);
+                temp.Stun(3.0f);
             }
-
-            Destroy(gameObject);
         }
 
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    IEnumerator Destroyed()
     {
-        if (id == 3)
-        {
-            Instantiate(explosion, transform.position, transform.rotation);
-        }
-        Destroy(gameObject);
-    }
-
-    IEnumerator Lifetime()
-    {
-        yield return new WaitForSeconds(lifetime);
-        if (id == 3)
-        {
-            Instantiate(explosion, transform.position, transform.rotation);
-        }
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 }

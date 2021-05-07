@@ -35,6 +35,12 @@ public class eProjectile : MonoBehaviour
             temp.hp -= damage;
             Destroy(gameObject);
         }
+
+        if (collider.CompareTag("Buff") == true)
+        {
+            Destroy(collider.transform.parent.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
