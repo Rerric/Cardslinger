@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CoinManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class CoinManager : MonoBehaviour
     public float coins;
 
     public TextMeshProUGUI coinsText;
+    public Text coinCount;
 
     // Start is called before the first frame update
     void Start()
@@ -19,5 +21,6 @@ public class CoinManager : MonoBehaviour
     void Update()
     {
         coinsText.text = "" + coins;
+        coinCount.text = "" + coins;
     }
 }

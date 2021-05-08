@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
     public GameObject windupArmsSprite;
     public GameObject attackArmsSprite;
     public GameObject markedSprite;
+    public GameObject stunnedSprite;
     public Rigidbody2D rb;
     public GameObject enemyProjectile;
     private GameObject player;
@@ -147,6 +148,12 @@ public class Enemy : MonoBehaviour
             markedSprite.SetActive(true);
         }
         else markedSprite.SetActive(false);
+
+        if (stunned)
+        {
+            stunnedSprite.SetActive(true);
+        }
+        else stunnedSprite.SetActive(false);
     }
 
     void Chase()

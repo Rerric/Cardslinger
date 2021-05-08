@@ -42,7 +42,7 @@ public class Pickup : MonoBehaviour
     {
         if (pickupType == 0)
         {
-            amount = Random.Range(5, 25);
+            amount = Random.Range(10, 50);
         }
 
         if (pickupType == 1)
@@ -62,8 +62,13 @@ public class Pickup : MonoBehaviour
         {
             for (int c = 0; c < amount; c++)
             {
-                int r = Random.Range(1, 3);
-                deckScript.AddCards(r, 1);
+                int q = Random.Range(1, 3); //chance to get Bullet or other card
+                int r = Random.Range(2, 7); //if getting other card, which card to get
+                if (q == 2)
+                {
+                    deckScript.AddCards(r, 1);
+                }
+                else deckScript.AddCards(1, 1);
             }
         }
         Destroy(gameObject);
