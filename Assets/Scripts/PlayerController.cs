@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class PlayerController : MonoBehaviour
     public float maxHp;
     public float hp;
     public bool isDead;
+    public bool hasWon;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
     private Vector3 mousePosition;
     public Transform target;
 
     public bool inShop;
+    public GameObject winText;
+    public GameObject bounty;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +47,12 @@ public class PlayerController : MonoBehaviour
         {
             hp = maxHp;
         }
+
+        if (bounty == null)
+        {
+            hasWon = true;
+            winText.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -64,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (isDead)
+            if (isDead || hasWon)
             {
                 SceneManager.LoadScene("Level");
             }

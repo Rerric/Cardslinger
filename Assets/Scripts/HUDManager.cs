@@ -8,6 +8,7 @@ public class HUDManager : MonoBehaviour
 
     public GameObject deckText;
     public GameObject coinText;
+    public GameObject targetText;
     public GameObject cardScreen;
 
     public bool onScreen;
@@ -37,12 +38,14 @@ public class HUDManager : MonoBehaviour
             cardScreen.SetActive(true);
             deckText.SetActive(false);
             coinText.SetActive(false);
+            targetText.SetActive(false);
         }
         else
         {
             cardScreen.SetActive(false);
             deckText.SetActive(true);
             coinText.SetActive(true);
+            targetText.SetActive(true);
         }
     }
 }
