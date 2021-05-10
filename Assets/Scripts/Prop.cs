@@ -11,7 +11,8 @@ public class Prop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        float rot = Random.Range(0, 359);
+        transform.Rotate(0, 0, rot);
     }
 
     // Update is called once per frame
