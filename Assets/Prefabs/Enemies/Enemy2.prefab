@@ -527,7 +527,7 @@ MonoBehaviour:
   dropPrefabs:
   - {fileID: 4922141211357006513, guid: 9183e499aa0de8940a6be2092edf42ef, type: 3}
   - {fileID: 1898054437235668396, guid: 7c043bf170950714c98eca3edc3a1688, type: 3}
-  dropChance: 60
+  dropChance: 75
 --- !u!50 &4307482299235306074
 Rigidbody2D:
   serializedVersion: 4
