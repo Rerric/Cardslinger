@@ -53,7 +53,7 @@ public class Revolver : MonoBehaviour
     void ProcessInputs()
     {
         //Mouse Inputs
-        if (Input.GetMouseButtonDown(0) && canShoot == true)
+        if (Input.GetMouseButtonDown(0) && canShoot == true && playerControllerScript.inShop == false)
         {
             Fire();
         }

@@ -10,6 +10,7 @@ TagManager:
   - Pickup
   - Prop
   - Buff
+  - Cursor
   layers:
   - Default
   - TransparentFX

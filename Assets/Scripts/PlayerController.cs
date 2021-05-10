@@ -14,10 +14,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePosition;
     public Transform target;
 
+    public bool inShop;
+
     // Start is called before the first frame update
     void Start()
     {
         isDead = false;
+        inShop = false;
         hp = maxHp;
     }
 
