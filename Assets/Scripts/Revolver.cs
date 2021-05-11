@@ -31,7 +31,7 @@ public class Revolver : MonoBehaviour
     {
         deckScript = GameObject.Find("Deck").GetComponent<Deck>();
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-        shotCd = 30;
+        shotCd = 15;
     }
 
     // Update is called once per frame
@@ -131,9 +131,9 @@ public class Revolver : MonoBehaviour
 
     void RotateBarrel()
     {
-        if (shotCd < 30)
+        if (shotCd < 15)
         {
-            revolver.transform.Rotate(0, 0, -2);
+            revolver.transform.Rotate(0, 0, -4);
             shotCd += 1;
         }
         else canShoot = true;

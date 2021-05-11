@@ -32,10 +32,10 @@ public class Buff : MonoBehaviour
     void Update()
     {
         transform.position = player.transform.position;
-        transform.Rotate(0, 0, 0.5f);
+        transform.Rotate(0, 0, 1.0f);
 
         buffSprite.transform.position = cardSprite.transform.position + new Vector3(0, 0.77f);
-        buffSprite.transform.Rotate(0, 0, -0.5f);
+        buffSprite.transform.Rotate(0, 0, -1.0f);
     }
 
     void BuffNow()
