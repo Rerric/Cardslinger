@@ -67,3 +67,44 @@ Devlog 1 - 4/19/2021
 -Created first WebGL Build for Beta Testing.
 -Updated ReadMe with Progress Log from Design Doc.
 
+
+5/4
+-Added Coin UI Sprite & Implemented coin tracker. (Currency)
+-Fixed Collisions with multiple objects by implementing Collision2D Layers.
+-Added Interactable Pickups (card drops and gold drops)
+-Adjusted Revolver White Slot Position to reflect actual firing slot.
+-Fixed slowed enemy reaction on melee enemy.
+
+5/5
+-Sketched basic Level Layout.
+-Added Sprites for Ground textures and Walls.
+-Slightly increased HUD and Main Camera Size.
+-Fixed new Collision Issues. (Walls, Projectiles, and Entities)
+-Added Wall Tile Prefabs for building level. (need to place a bunch more)
+
+5/6
+-Finished Building Level Layout.
+-Created Sprites for Props.
+-Added Crate, Barrel, and Cart Props.
+-Added 3 New Cards. (Flashbang, Queen of Hearts, Wildcard)
+
+5/7
+-Added Stunned Status Effect Sprite to enemies.
+-Implemented Deck Menu Screen. (Tab to view)
+
+5/10
+-Implemented Shop System & Added Shop to Level.
+-Decorated the Level with Props.
+-Added a Boss Enemy & Implemented Bounty System. (Win Condition)
+-Added Background Sprites.
+-Painted Cover Image.
+-Tweaked Settings for Final Build.
+-Compressed Final Build. (1.0)
+-Captured Gameplay Video.
+-Took Screenshots.
+-Created Itch.io Page.
+-Updated README for Final Release.
+-Wrote Final Report.
+
+
+
