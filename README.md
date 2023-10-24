@@ -1,5 +1,5 @@
 # Cardslinger
-final project
+2D Top Down Deckbuilding Action Game
 
 Devlog 1 - 4/19/2021
 -Got the game to Alpha stages. Not much to it yet, but core gameplay mechanics are nearly in tact.
